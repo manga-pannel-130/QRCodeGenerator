@@ -1,0 +1,103 @@
+    body {
+        background: #f2f4f7;
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+
+    .container {
+        background: white;
+        padding: 30px;
+        border-radius: 12px;
+        width: 330px;
+        text-align: center;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        animation: fadeIn 0.5s ease;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    .container h2 {
+        margin-bottom: 15px;
+        font-size: 22px;
+    }
+
+    input {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        font-size: 16px;
+        outline: none;
+    }
+
+    input:focus {
+        border-color: #4a90e2;
+    }
+
+    button {
+        margin-top: 15px;
+        width: 100%;
+        padding: 12px;
+        background: #4a90e2;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: 0.3s ease;
+    }
+
+    button:hover {
+        background: #3576c4;
+    }
+
+    #imgBox {
+        width: 220px;
+        margin: 20px auto 0;
+        
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        background: #fafafa;
+        border-radius: 10px;
+
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s ease;
+        box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+
+    #imgBox.show-img {
+        max-height: 260px; /* enough space for QR */
+        padding: 15px;
+    }
+
+    #qrImage {
+        width: 200px;
+        height: 200px;
+        object-fit: contain;
+    }
+    /* Shake animation (2px movement each side) */
+@keyframes input-shake {
+  0%   { transform: translateX(0); }
+  20%  { transform: translateX(-2px); }
+  40%  { transform: translateX(2px); }
+  60%  { transform: translateX(-2px); }
+  80%  { transform: translateX(2px); }
+  100% { transform: translateX(0); }
+}
+
+/* class to trigger the shake + subtle red outline */
+.input-error {
+  animation: input-shake 0.36s ease;
+  border-color: #e74c3c !important;
+  box-shadow: 0 0 6px rgba(231,76,60,0.18);
+}
